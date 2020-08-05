@@ -1,0 +1,14 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 05 Aug 2020 15:48:57 at http://hienle.demo.123corp.vn/steeldoor/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://hienle.demo.123corp.vn/steeldoor/ -O1 "D:\xampp\htdocs\FCV\WP\2020\07\realwork\Realwork" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:51:32	Warning: 	Retry after error -4 (Incorrect length (199381 Bytes, 357573 expected)) at link hienle.demo.123corp.vn/steeldoor/img/banner3.jpg (from hienle.demo.123corp.vn/steeldoor/)
+15:51:58	Error: 	"Not Found" (404) at link hienle.demo.123corp.vn/steeldoor/css/owl.video.play.png (from hienle.demo.123corp.vn/steeldoor/css/owl.carousel.min.css)
+15:51:58	Warning: 	Retry after error -4 (Incorrect length (202407 Bytes, 643883 expected)) at link hienle.demo.123corp.vn/steeldoor/img/gt8.jpg (from hienle.demo.123corp.vn/steeldoor/gioi-thieu.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 3 minutes 24 seconds : 103 links scanned, 99 files written (5890618 bytes overall) [5063547 bytes received at 24821 bytes/sec], 1115897 bytes transferred using HTTP compression in 26 files, ratio 22%, 1.6 requests per connection
+(1 errors, 2 warnings, 0 messages)
