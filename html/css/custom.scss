@@ -63,3 +63,8 @@ footer {
 }
 .footer-bottom {
 }
+@media screen and (max-width: 767px) {
+	.main-banner {
+		height: 400px;
+	}
+}
