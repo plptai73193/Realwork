@@ -1,73 +1,54 @@
 /* Custom CSS */
 .light-background {
-  background: #f1f1f1;
-}
+  background: #f1f1f1; }
 
 .main-banner {
   height: 600px;
-  position: relative;
-}
-
-.main-banner .slide-fade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.main-banner .slide-fade > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover !important;
-}
-
-.main-banner .slide-fade > div .inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+  position: relative; }
+  .main-banner .slide-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+    .main-banner .slide-fade > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      .main-banner .slide-fade > div .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover !important; }
 
 .main-gioithieu {
-  padding: 0 0 50px;
-}
-
-.main-gioithieu h2 {
-  padding: 50px 0 20px;
-}
+  padding: 0 0 50px; }
+  .main-gioithieu h2 {
+    padding: 50px 0 20px; }
 
 .main-sanpham-home {
-  padding: 50px 0;
-}
+  padding: 50px 0; }
 
 .main-tintuc h2 {
-  padding: 20px 0 20px;
-}
+  padding: 20px 0 20px; }
 
 .main-feedback h2 {
-  padding: 50px 0 20px;
-}
+  padding: 50px 0 20px; }
 
 .main-doitac {
   padding: 50px 0 80px;
-  margin-bottom: 50px;
-}
-
-.main-doitac h2 {
-  padding: 0 0 20px;
-}
+  margin-bottom: 50px; }
+  .main-doitac h2 {
+    padding: 0 0 20px; }
 
 footer {
-  padding-top: 50px;
-}
+  padding-top: 50px; }
 
 @media screen and (max-width: 767px) {
   .main-banner {
-    height: 400px;
-  }
-}
+    height: 400px; } }
+/*# sourceMappingURL=custom.css.map */
