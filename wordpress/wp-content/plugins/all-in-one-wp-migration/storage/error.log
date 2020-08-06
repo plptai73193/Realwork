@@ -1,0 +1,6 @@
+Aug 06 2020 12:37:03
+{"type":2,"message":"Declaration of Menu_With_Description::start_el(&$output, $item, $depth, $args) should be compatible with Walker_Nav_Menu::start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0)","file":"D:\\xampp\\htdocs\\plpt\\job\\realwork\\wordpress\\wp-content\\themes\\realwork\\functions.php","line":235}
+
+Aug 06 2020 12:37:05
+{"type":2,"message":"Declaration of Menu_With_Description::start_el(&$output, $item, $depth, $args) should be compatible with Walker_Nav_Menu::start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0)","file":"D:\\xampp\\htdocs\\plpt\\job\\realwork\\wordpress\\wp-content\\themes\\realwork\\functions.php","line":235}
+
