@@ -3,7 +3,21 @@
 	$logo = get_field('logo', 'option');
 	$commonInfo = get_field('common_info', 'option');
 	$email = $commonInfo[0]['email'];
-	$phone = $commonInfo[0]['phone'];
+   $phone = $commonInfo[0]['phone'];
+   $args = [
+      'post_type' => 'post',
+      'posts_per_page' => '5',
+      'orderby' => 'date',
+      'order' => 'DESC',
+      'tax_query' => [
+         [
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'dich-vu'
+         ]
+      ]
+   ];
+   $query = new WP_Query($args);
 ?>
 <!DOCTYPE html
    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,11 +49,15 @@
    <header>
       <div class="header-top">
          <div class="container">
-            <div class="flex-end reserve-header">
-               <p class="hotline-mail hide767">HỖ TRỢ ĐẶT HÀNG:
-                  <a href="tel:<?php echo $phone[0]['booking_phone'] ?>"><?php echo $phone ?></a> -
-                  <a href="mailto:<?php echo $email[0]['booking_email'] ?>"><?php echo $email ?></a>
-               </p>
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="flex-end reserve-header">
+                     <p class="hotline-mail">HỖ TRỢ ĐẶT HÀNG:
+                        <a href="tel:<?php echo $phone[0]['booking_phone'] ?>"><?php echo $phone ?></a> -
+                        <a href="mailto:<?php echo $email[0]['booking_email'] ?>"><?php echo $email ?></a>
+                     </p>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -54,18 +72,40 @@
                   <li class="has-sub">
                      <a href="<?php echo site_url('dich-vu') ?>">Dịch Vụ <i class="fas fa-angle-down"></i></a>
                      <ul class="ul-sub-menu">
-                        <li class="has-sub-2">
-                           <a href="san-pham.html"><span>Văn Phòng Ảo</span><i class="fas fa-angle-right"></i></a>
+                        <?php 
+                           if($query->have_posts()){
+                              while ($query->have_posts()):
+                                 $query->the_post();
+                                 $childPosts = get_field('child_post');
+                                 $subMenuClass = $childPosts ? 'has-sub-2' : '';
+                                 $subIcon = $childPosts ? '<i class="fas fa-angle-right"></i>' : '';
+                        ?>
+                        <li class="<?php echo $subMenuClass ?>">
+                           <a href="<?php the_permalink() ?>">
+                              <?php 
+                                 the_title(); 
+                                 echo $subIcon;
+                              ?>
+                           </a>
+                           <?php 
+                              if($subMenuClass && !empty($subMenuClass)){
+                           ?>
                            <ul class="ul-sub-menu-2">
-                              <li><a href="san-pham.html">Cửa Chống Cháy</a></li>
-                              <li><a href="san-pham.html">Cửa Ngoài Trời</a></li>
-                              <li>
-                                 <a href="san-pham.html"><span>Cửa Trong Nhà</span></a>
-                              </li>
+                              <?php 
+                                 foreach ($childPosts as $childPost) {
+                                    $postID = $childPost->ID;
+                                    $postTitle = $childPost->post_title;
+                              ?>
+                              <li><a href="<?php the_permalink($postID) ?>"><?php echo $postTitle ?></a></li>
+                              <?php } ?>
                            </ul>
+                           <?php } ?>
                         </li>
-                        <li><a href="san-pham.html">Cầu Thang Gỗ</a></li>
-                        <li><a href="san-pham.html">Ván Gỗ</a></li>
+                        <?php 
+                              endwhile;
+                              wp_reset_postdata();
+                           } 
+                        ?>
                      </ul>
                   </li>
                   <li>
@@ -108,59 +148,55 @@
          </div>
          <div id="mySidenav" class="sidenav">
             <ul class="menu-mobile" id="accordion">
-               <li><a href="index.html">Trang Chủ</a></li>
-               <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+               <li><a href="<?php echo site_url() ?>">Trang Chủ</a></li>
+               <li><a href="<?php echo site_url('gioi-thieu') ?>">Giới Thiệu</a></li>
                <li class="hassub-mb hassub-mb-1 panel">
-                  <p class="phelp"><a href="san-pham.html">Sản phẩm</a><a data-parent="#accordion"
-                        data-toggle="collapse" href="#dmmb-1" class="a-icon"><i class="fas fa-angle-down"></i></a></p>
+                  <p class="phelp">
+                     <a href="<?php echo site_url('dich-vu') ?>">Dịch Vụ</a>
+                     <a data-parent="#accordion" data-toggle="collapse" href="#dmmb-1" class="a-icon"><i
+                           class="fas fa-angle-down"></i></a>
+                  </p>
                   <ul class="sub-menu-mb collapse" id="dmmb-1">
-                     <li class="hassub-mb hassub-mb-2">
-                        <p class="phelp"><a href="san-pham.html">Cửa gỗ</a><a data-toggle="collapse" href="#dmmb-1-1"
-                              class="a-icon"><i class="fas fa-angle-down"></i></a></p>
+                     <?php 
+                        if($query->have_posts()){
+                           while ($query->have_posts()):
+                              $query->the_post();
+                              $childPosts = get_field('child_post');
+                              $subMenuClass = $childPosts ? 'hassub-mb hassub-mb-2' : '';
+                     ?>
+                     <li class="<?php echo $subMenuClass ?>">
+                        <?php 
+                           if($childPosts && !empty($childPosts)){
+                        ?>
+                        <p class="phelp"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><a
+                              data-toggle="collapse" href="#dmmb-1-1" class="a-icon"><i
+                                 class="fas fa-angle-down"></i></a></p>
                         <ul class="sub-menu-mb collapse" id="dmmb-1-1">
-                           <li><a href="san-pham.html">Cửa Chống Cháy</a></li>
-                           <li><a href="san-pham.html">Cửa Ngoài Trời</a></li>
-                           <li class="hassub-mb hassub-mb-3">
-                              <p class="phelp"><a href="san-pham.html">Cửa Trong Nhà</a><a data-toggle="collapse"
-                                    href="#dmmb-1-1-1" class="a-icon"><i class="fas fa-angle-down"></i></a></p>
-                              <ul class="sub-menu-mb collapse" id="dmmb-1-1-1">
-                                 <li><a href="san-pham.html">Cửa Cổ Điển</a></li>
-                                 <li><a href="san-pham.html">Cửa Xếp</a></li>
-                                 <li><a href="san-pham.html">Cửa Trượt</a></li>
-                                 <li><a href="san-pham.html">Cửa Pháp</a></li>
-                                 <li class="hassub-mb hassub-mb-4">
-                                    <p class="phelp"><a href="san-pham.html">Cửa Phẳng</a><a data-toggle="collapse"
-                                          href="#dmmb-1-1-1-1" class="a-icon"><i class="fas fa-angle-down"></i></a></p>
-                                    <ul class="sub-menu-mb collapse" id="dmmb-1-1-1-1">
-                                       <li><a href="san-pham.html">Cửa Phẳng Ron</a></li>
-                                       <li><a href="san-pham.html">Cửa Phẳng Lá Xách</a></li>
-                                       <li><a href="san-pham.html">Cửa Phẳng Kính</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="hassub-mb hassub-mb-4">
-                                    <p class="phelp"><a href="san-pham.html">Cửa Panel</a><a data-toggle="collapse"
-                                          href="#dmmb-1-1-1-2" class="a-icon"><i class="fas fa-angle-down"></i></a></p>
-                                    <ul class="sub-menu-mb collapse" id="dmmb-1-1-1-2">
-                                       <li><a href="san-pham.html">Cửa Panel</a></li>
-                                       <li><a href="san-pham.html">Cửa Panel Phẳng</a></li>
-                                       <li><a href="san-pham.html">Cửa Panel Kính</a></li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
+                           <?php 
+                                 foreach ($childPosts as $childPost) {
+                                    $postID = $childPost->ID;
+                                    $postTitle = $childPost->post_title;
+                           ?>
+                           <li><a href="<?php the_permalink( $postID ) ?>"><?php echo $postTitle ?></a></li>
+                           <?php } ?>
                         </ul>
+                        <?php 
+                           } else {
+                        ?>
+                        <a href="<?php the_permalink() ?>">
+                           <?php the_title(); ?>
+                        </a>
+                        <?php } ?>
                      </li>
-                     <li><a href="san-pham.html">Cầu thang gỗ</a></li>
-                     <li><a href="san-pham.html">Ván gỗ</a></li>
+                     <?php 
+                           endwhile;
+                           wp_reset_postdata();
+                        } 
+                     ?>
                   </ul>
                </li>
-               <li class="hassub-mb panel">
-                  <p class="phelp"><a href="blog.html">Blog</a><a data-parent="#accordion" data-toggle="collapse"
-                        href="#dmmb-2" class="a-icon"><i class="fas fa-angle-down"></i></a></p>
-                  <ul class="sub-menu-mb panel-collapse collapse" id="dmmb-2">
-                     <li><a href="tin-tuc.html">Tin tức</a></li>
-                     <li><a href="video.html">Video</a></li>
-                  </ul>
+               <li>
+                  <p><a href="blog.html">Blog</a></p>
                </li>
                <li><a href="cong-trinh.html">Công trình</a></li>
                <li><a href="tuyen-dung.html">Tuyển dụng</a></li>
@@ -182,3 +218,14 @@
             <?php }} ?>
          </div>
       </div>
+      <?php if(!is_home() && !is_front_page()){ ?>
+      <div class="main-breac">
+         <div class="container">
+            <?php if(function_exists('bcn_display'))
+               {
+                  bcn_display();
+               }
+            ?>
+         </div>
+      </div>
+      <?php } ?>

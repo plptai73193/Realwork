@@ -217,6 +217,11 @@ body {
 	display: block;
 	width: 90px;
 }
+.ft_logo {
+	display: block;
+	width: 150px;
+}
+
 .cart-head {
 	margin-right: 15px;
 	position: relative;
@@ -512,6 +517,13 @@ body {
 		}
 	}
 }
+.sidebar {
+	.eff-scale {
+		img {
+			height: 165px;
+		}
+	}
+}
 .img-product {
 	position: relative;
 }
@@ -670,9 +682,7 @@ footer {
 	margin: 0;
 }
 .block-footer-center {
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-	padding: 20px 0;
+	padding: 0 0 20px;
 }
 .block-add {
 	border-right: 1px solid #fff;
@@ -720,6 +730,10 @@ footer {
 .img-lsht {
 	width: 180px;
 	margin-right: 10px;
+	img {
+		height: 135px;
+		object-fit: cover;
+	}
 }
 .content-lsht {
 	width: calc(100% - 190px);
@@ -1221,7 +1235,7 @@ footer {
 		position: fixed;
 		top: 0;
 		right: 0;
-		background-color: #3b4859;
+		background-color: $siteColor;
 		overflow-x: hidden;
 		transition: 0.3s;
 		z-index: 99999;
@@ -1303,7 +1317,7 @@ footer {
 		> li {
 			border-top: 1px solid #ddd;
 			border-bottom: none;
-			background: #424242;
+			background: #f5585e;
 			&:last-child {
 				border-bottom: none;
 			}
@@ -1322,7 +1336,7 @@ footer {
 	.hassub-mb-2 {
 		> .sub-menu-mb {
 			> li {
-				background: #636363;
+				background: #b34448;
 			}
 		}
 	}
@@ -1353,7 +1367,6 @@ footer {
 	}
 	.header-top {
 		.container {
-			padding: 0;
 		}
 	}
 	.cart-search {
@@ -1391,7 +1404,11 @@ footer {
 	.img-lsht {
 		width: 100%;
 		margin-right: 0;
+		img {
+			height: 55vw;
+		}
 	}
+
 	.content-lsht {
 		width: 100%;
 	}

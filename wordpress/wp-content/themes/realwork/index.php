@@ -1,7 +1,9 @@
 <?php 
 	/* Template Name: Trang Chủ */
-	get_header();
+   get_header();
+   $indexID = 28;
    $commonInfo = get_field('common_info', 'option');
+   $homeOverview = get_field('home_overview', $indexID);
 ?>
 <div class="main-contact">
    <div class="container">
@@ -30,11 +32,11 @@
    </div>
 </div>
 <?php 
-   $pageID = 26;
-   $aboutFieldObject = get_field_object('about_info', $pageID);
+   $aboutID = 26;
+   $aboutFieldObject = get_field_object('about_info', $aboutID);
    $aboutSubtitle = $aboutFieldObject['sub_fields'];
-   $aboutInfo = get_field('about_info', $pageID);
-   $thumb = get_the_post_thumbnail_url($pageID) ? get_the_post_thumbnail_url($pageID) : NO_IMAGE;
+   $aboutInfo = get_field('about_info', $aboutID);
+   $thumb = get_the_post_thumbnail_url($aboutID) ? get_the_post_thumbnail_url($aboutID) : NO_IMAGE;
 ?>
 <div class="main-wraper main-gioithieu light-background">
    <div class="gioi-thieu-chung">
@@ -100,7 +102,7 @@
                   $thumb = get_the_post_thumbnail_url($post->ID) ? get_the_post_thumbnail_url($post->ID) : NO_IMAGE;
                   $excerpt = $post->post_excerpt;
             ?>
-            <div class="col-md-3 col-sm-6 col-xs-6 product-outer">
+            <div class="col-md-3 col-sm-6 col-xs-12 product-outer">
                <div class="product-items">
                   <div class="img-product">
                      <a href="<?php the_permalink() ?>" class="eff-scale">
@@ -184,16 +186,15 @@
 ?>
 
 <?php 
-   $pageID = 28;
-   $homeOverview = get_field('home_overview', $pageID);
    $homeFeedbacks = $homeOverview[0]['feedbacks'];
+   if($homeFeedbacks && !empty($homeFeedbacks)){
 ?>
 <div class="main-feedback">
    <div class="container">
       <h2 class="tit-page">Feedbacks</h2>
       <div class="block-slider-feedback">
          <div class="slider-feedback owl-carousel owl-theme">
-            <?php 
+            <?php
                foreach ($homeFeedbacks as $homeFeedback){
                   $thumb = $homeFeedback['profile_picture'] ? $homeFeedback['profile_picture'] : NO_IMAGE;
             ?>
@@ -211,20 +212,28 @@
       </div>
    </div>
 </div>
+<?php } ?>
 
 
+<?php 
+   $homePartners = $homeOverview[0]['partner'];
+   if($homePartners && !empty($homePartners)){
+?>
 <div class="main-doitac light-background">
    <div class="container">
       <h2 class="tit-page">ĐỐI TÁC</h2>
       <div class="block-slider-doitac">
          <div class="slider-doitac owl-carousel owl-theme">
-            <div class="slide_item"><img src="https://place-hold.it/250x100"></div>
-            <div class="slide_item"><img src="https://place-hold.it/250x100"></div>
-            <div class="slide_item"><img src="https://place-hold.it/250x100"></div>
-            <div class="slide_item"><img src="https://place-hold.it/250x100"></div>
-            <div class="slide_item"><img src="https://place-hold.it/250x100"></div>
+            <?php
+               foreach ($homePartners as $homePartner){
+                  $thumbImage = $homePartner['partner_image']['sizes']['medium'];
+                  if (!empty($thumbImage)){
+            ?>
+            <div class="slide_item"><img src="<?php echo $thumbImage; ?>"></div>
+            <?php }} ?>
          </div>
       </div>
    </div>
 </div>
+<?php } ?>
 <?php get_footer(); ?>

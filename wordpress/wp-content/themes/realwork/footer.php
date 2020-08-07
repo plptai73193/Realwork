@@ -1,96 +1,53 @@
+<?php 
+   $logoFooter = get_field('logo_footer', 'option'); 
+   $commonInfo = get_field('common_info', 'option');
+?>
 </section>
 <footer>
-   <div class="footer-top">
-      <div class="clear20"></div>
-      <div class="container">
-         <div class="row flex-wrap">
-            <div class="col-md-3 col-md-6 col-xs-6">
-               <div class="item-camket">
-                  <div class="icon-camket"><img src="img/ck1.png"></div>
-                  <div class="text-camket">
-                     <p class="text-uppercase bold">THỜI GIAN GIAO HÀNG</p>
-                     <p class="text-uppercase">Từ 7 Giờ</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-3 col-md-6 col-xs-6">
-               <div class="item-camket">
-                  <div class="icon-camket"><img src="img/ck2.png"></div>
-                  <div class="text-camket">
-                     <p class="text-uppercase bold">ĐƠN ĐẶT HÀNG</p>
-                     <p class="text-uppercase">THEO YÊU CẦU</p>
-                  </div>
-               </div>
-            </div>
-            <div class="clear20 show991 fullwidth"></div>
-            <div class="col-md-3 col-md-6 col-xs-6">
-               <div class="item-camket">
-                  <div class="icon-camket"><img src="img/ck3.png"></div>
-                  <div class="text-camket">
-                     <p class="text-uppercase bold">TRA CỨU</p>
-                     <p class="text-uppercase">ĐƠN HÀNG</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-3 col-md-6 col-xs-6">
-               <div class="item-camket">
-                  <div class="icon-camket"><img src="img/ck4.png"></div>
-                  <div class="text-camket">
-                     <p class="text-uppercase bold">THAY ĐỔI</p>
-                     <p class="text-uppercase">ĐƠN HÀNG</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="clear20"></div>
-   </div>
    <div class="footer-center">
       <div class="container">
          <div class="block-footer-center">
             <div class="row flex-wrap">
-               <div class="col-md-4 col-sm-4 col-xs-6">
-                  <h4 class="tit-ft">HỖ TRỢ KHÁCH HÀNG</h4>
-                  <ul class="ul-ft">
-                     <li><a href="#">Hướng dẫn mua hàng</a></li>
-                     <li><a href="#">Đổi trả hàng</a></li>
+               <div class="col-md-4 col-sm-4 col-xs-12">
+                  <p class="ft_logo"><a href="<?php echo site_url(); ?>"><img src="<?php echo $logoFooter ?>"
+                           alt="<?php bloginfo( 'name' ) ?>"></a></p>
+               </div>
+               <div class="col-md-4 col-sm-4 col-xs-12">
+                  <h4 class="tit-ft">Site Map</h4>
+                  <ul class="ul-ft sitemap">
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url(); ?>">Trang chủ</a></li>
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url('gioi-thieu'); ?>">Giới
+                           thiệu</a>
+                     </li>
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url('dich-vu'); ?>">Dịch vụ</a></li>
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url('tin-tuc'); ?>">Tin tức</a></li>
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url('hinh-anh'); ?>">Hình ảnh</a>
+                     </li>
+                     <li><i class="fas fa-angle-right"></i><a href="<?php echo site_url('lien-he'); ?>">Liên hệ</a></li>
                   </ul>
                </div>
-               <div class="col-md-4 col-sm-4 col-xs-6">
-                  <h4 class="tit-ft">ĐIỀU KHOẢN</h4>
-                  <ul class="ul-ft">
-                     <li><a href="#">Điều khoản chung</a></li>
+               <div class="col-md-4 col-sm-4 col-xs-12">
+                  <h4 class="tit-ft">LIÊN HỆ</h4>
+                  <ul class="ul-ft contact">
+                     <li><i class="fas fa-map-marker-alt"></i><?php echo $commonInfo[0]['address'] ?></li>
+                     <li><i class="fas fa-phone"></i><a
+                           href="tel:<?php echo $commonInfo[0]['phone'] ?>"><?php echo $commonInfo[0]['phone'] ?></a>
+                     </li>
+                     <li><i class="far fa-envelope"></i><a
+                           href="mailto:<?php echo $commonInfo[0]['email'] ?>"><?php echo $commonInfo[0]['email'] ?></a>
+                     </li>
+                     <li><i class="far fa-clock"></i><?php echo $commonInfo[0]['working_time'] ?></li>
                   </ul>
-               </div>
-               <div class="clear20 show767 fullwidth"></div>
-               <div class="col-md-4 col-sm-4 col-xs-6">
-                  <h4 class="tit-ft">LIÊN HỆ VỚI STEELDOOR</h4>
-                  <p>Từ 9:00 đến 18:00 &nbsp;Các ngày trong tuần.<br>Nghỉ chủ nhật và ngày lễ theo qui định.</p>
                </div>
             </div>
          </div>
       </div>
-   </div>
-   <div class="footer-bottom">
-      <div class="clear20"></div>
-      <div class="container">
-         <div class="row flex-wrap">
-            <div class="col-md-6 col-sm-6 col-xs-6 fwmb">
-               <div class="block-add">
-                  <p class="bold">Showroom Tp. HCM: </p>
-                  <p>506/17 Ba Tháng Hai, Phường 14, Quận 10, TP.HCM.<br>ĐT: (028) 629 74 629&nbsp; Email:
-                     info@americandoor.com.vn</p>
-               </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 fwmb">
-               <div class="block-add noborder">
-                  <p class="bold">Showroom Cần Thơ:</p>
-                  <p>94C đường 3/2 , Phường Hưng Lợi,Quận Ninh Kiều, TP.Cần Thơ.<br>ĐT: (029) 237 32 777</p>
-               </div>
-            </div>
-         </div>
+      <div class="address center">
+         <address>&copy;
+            <script>
+            document.write(new Date().getFullYear());
+            </script> RealWorks All rights reserved</address>
       </div>
-      <div class="clear20"></div>
    </div>
 </footer>
 <div id="show-search" class="modal fade" role="dialog">

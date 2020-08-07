@@ -379,20 +379,22 @@ add_filter('edit_category_form_fields', 'cat_description');
 function cat_description($tag)
 {
     ?>
-        <table class="form-table">
-            <tr class="form-field">
-                <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
-                <td>
-                <?php
+<table class="form-table">
+   <tr class="form-field">
+      <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label>
+      </th>
+      <td>
+         <?php
                     $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
                     wp_editor(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'), 'cat_description', $settings);
                 ?>
-                <br />
-                <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
-                </td>
-            </tr>
-        </table>
-    <?php
+         <br />
+         <span
+            class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
+      </td>
+   </tr>
+</table>
+<?php
 }
 
 add_action('admin_head', 'remove_default_category_description');
@@ -402,12 +404,12 @@ function remove_default_category_description()
     if ( $current_screen->id == 'edit-category' )
     {
     ?>
-        <script type="text/javascript">
-        jQuery(function($) {
-            $('textarea#description').closest('tr.form-field').remove();
-        });
-        </script>
-    <?php
+<script type="text/javascript">
+jQuery(function($) {
+   $('textarea#description').closest('tr.form-field').remove();
+});
+</script>
+<?php
     }
 }
 
@@ -448,8 +450,8 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
         'end_size'        => 1,
         'mid_size'        => $pagerange,
         'prev_next'       => false,
-        'prev_text'       => __('« Prev'),
-        'next_text'       => __('Next »'),
+        'prev_text'       => __('«'),
+        'next_text'       => __('»'),
         'type'            => 'plain',
         'add_args'        => false,
         'add_fragment'    => ''
@@ -473,7 +475,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
     if ($paginate_links) {
         echo "<div class='pagination'>";
         if(($prev_1_page > 0)) {
-            echo '<a href="'.$prev_1_page_link.'">&laquo; Prev</a>';
+            echo '<a href="'.$prev_1_page_link.'">&laquo;</a>';
         }
 
         if(($prev_5_page >= 0)) {
@@ -487,7 +489,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
         }
 
         if(($next_1_page <= $numpages)) {
-            echo '<a href="'.$next_1_page_link.'">Next &raquo;</a>';
+            echo '<a href="'.$next_1_page_link.'">&raquo;</a>';
         }
 
         echo "</div>";

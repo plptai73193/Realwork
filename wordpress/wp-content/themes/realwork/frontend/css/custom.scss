@@ -96,8 +96,72 @@ footer {
 	margin-top: 15px;
 }
 .slide_item img {
-	height: 200px;
-	object-fit: cover;
+}
+.owl-carousel .owl-stage {
+	display: flex;
+	align-items: center;
+}
+.sitemap {
+	li {
+		padding-bottom: 10px;
+		a {
+			padding-left: 5px;
+		}
+	}
+}
+.contact {
+	li {
+		padding-bottom: 10px;
+		i {
+			padding-right: 20px;
+		}
+	}
+}
+.address {
+	padding: 0 0 20px;
+}
+.pagination {
+	display: flex;
+	> * {
+		margin: 0;
+		width: 35px;
+		height: 35px;
+		border-radius: 5px;
+		border: 1px solid $siteColor;
+		color: $siteColor;
+		text-align: center;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding-top: 7px;
+		+ * {
+			margin-left: 5px;
+		}
+		&.current {
+			background: $siteColor;
+			color: #ffffff;
+		}
+	}
+	a {
+		&:hover {
+			background: $siteColor;
+			color: #ffffff;
+		}
+	}
+}
+.main-breac {
+	div {
+		> span {
+			a {
+				span {
+					color: #000000;
+				}
+			}
+			span {
+				color: $siteColor;
+			}
+		}
+	}
 }
 @media screen and (max-width: 767px) {
 	.main-banner {
@@ -106,6 +170,17 @@ footer {
 	.main-contact {
 		.media-body {
 			padding: 20px 10px;
+		}
+	}
+	.ft_logo {
+		text-align: center;
+		margin: 0 auto;
+	}
+	.block-footer-center {
+		> div {
+			> div {
+				margin-bottom: 20px;
+			}
 		}
 	}
 }
