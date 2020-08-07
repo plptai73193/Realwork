@@ -3,6 +3,7 @@ define('ASSETS_PATH', get_template_directory_uri() . '/');
 define('IMAGE_PATH', ASSETS_PATH . 'frontend/');
 define('JS_PATH', ASSETS_PATH . 'frontend/');
 define('CSS_PATH', ASSETS_PATH . 'frontend/');
+define('NO_IMAGE', get_field('no_image', 'option'));
 
 if ( ! function_exists( 'setup' ) ) :
 function setup() {
@@ -265,4 +266,16 @@ function pr($data = array(), $exit = false){
 // 		remove_post_type_support( 'page', 'editor' );
 // 	}
 // }
-add_post_type_support( 'page', 'excerpt' );
+
+function word_count($string, $limit) {
+	$words = explode(' ', $string);
+	return implode(' ', array_slice($words, 0, $limit)) . '...';
+}
+
+function excerpt($string, $limit){
+	if($string && $string != ''){
+		echo word_count($string, $limit);
+	} else {
+		echo '';
+	}
+}

@@ -79,10 +79,25 @@
 footer {
 	padding-top: 50px;
 }
-.block-footer-center {
-	// padding: 50px 0;
+
+.more {
+	text-align: center;
+	margin-top: 50px;
+	a {
+		display: inline-block;
+		width: 300px;
+		max-width: 100%;
+		background: $siteColor;
+		color: #ffffff;
+		border-color: $siteColor;
+	}
 }
-.footer-bottom {
+.fb_title {
+	margin-top: 15px;
+}
+.slide_item img {
+	height: 200px;
+	object-fit: cover;
 }
 @media screen and (max-width: 767px) {
 	.main-banner {
