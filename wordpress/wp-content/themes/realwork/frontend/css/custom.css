@@ -124,11 +124,26 @@ footer {
     background: #ed1b24;
     color: #ffffff; }
 
+.main-lienhe {
+  padding-top: 50px; }
+  .main-lienhe .editer i {
+    padding-right: 20px;
+    color: #ed1b24; }
+  .main-lienhe .editer a {
+    color: #ed1b24; }
+
 .main-breac div > span a span {
   color: #000000; }
 
 .main-breac div > span span {
   color: #ed1b24; }
+
+.slogan {
+  text-align: center;
+  color: #ed1b24;
+  font-size: 25px;
+  line-height: 1.5em;
+  padding-top: 30px; }
 
 @media screen and (max-width: 767px) {
   .main-banner {

@@ -80,6 +80,20 @@
       <div class="clear40"></div>
    </div>
    <?php 
+      $slogan = $aboutInfo[0]['slogan'];
+   ?>
+   <div class="slogan">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-lg col-md-12 col-sm-12 col-xs-12">
+               <div class="slogan">
+                  <?php echo $slogan ?>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <?php 
       }
    ?>
 </div>

@@ -563,7 +563,7 @@ body {
     margin-right: 10px; }
 
 .main-bosuutap {
-  background: #f7f7f7; }
+  margin-bottom: 50px; }
 
 .des-bst {
   text-align: center;
@@ -580,6 +580,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative; }
+  .block-design img {
+    height: 350px;
+    -o-object-fit: cover;
+       object-fit: cover; }
 
 .top-desgin {
   position: absolute;
@@ -980,14 +984,10 @@ footer {
 .phone-lh img {
   margin-right: 7px; }
 
-.f-contact p {
+.f-contact .text {
   width: 120px; }
-
-.f-contact input {
-  width: calc(100% - 120px); }
-
-.f-contact textarea {
-  width: calc(100% - 120px); }
+  .f-contact .text ~ p {
+    width: calc(100% - 120px); }
 
 .btn-gui {
   color: #fff;
@@ -1090,14 +1090,10 @@ footer {
   font-weight: 700;
   background: #ddd; }
 
-.thongtingiaohang .f-contact p {
+.thongtingiaohang .f-contact .text {
   width: 200px; }
-
-.thongtingiaohang .f-contact input {
-  width: calc(100% - 200px); }
-
-.thongtingiaohang .f-contact textarea {
-  width: calc(100% - 200px); }
+  .thongtingiaohang .f-contact .text ~ p {
+    width: calc(100% - 200px); }
 
 .thongtingiaohang .f-contact select {
   width: calc(100% - 200px); }
@@ -1370,16 +1366,18 @@ footer {
     height: 300px; }
   .f-contact {
     display: block; }
-    .f-contact p {
+    .f-contact .text {
       width: 100%;
       margin-bottom: 10px; }
+      .f-contact .text ~ {
+        width: 100%; }
     .f-contact input {
       width: 100%; }
     .f-contact textarea {
       width: 100%; }
     .f-contact select {
       width: 100%; }
-  .thongtingiaohang .f-contact p {
+  .thongtingiaohang .f-contact .text {
     width: 100%; }
   .thongtingiaohang .f-contact input {
     width: 100%; }

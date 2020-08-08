@@ -149,6 +149,18 @@ footer {
 		}
 	}
 }
+.main-lienhe {
+	padding-top: 50px;
+	.editer {
+		i {
+			padding-right: 20px;
+			color: $siteColor;
+		}
+		a {
+			color: $siteColor;
+		}
+	}
+}
 .main-breac {
 	div {
 		> span {
@@ -162,6 +174,13 @@ footer {
 			}
 		}
 	}
+}
+.slogan {
+	text-align: center;
+	color: $siteColor;
+	font-size: 25px;
+	line-height: 1.5em;
+	padding-top: 30px;
 }
 @media screen and (max-width: 767px) {
 	.main-banner {

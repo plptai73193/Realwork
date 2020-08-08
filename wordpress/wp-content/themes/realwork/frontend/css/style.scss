@@ -592,7 +592,7 @@ body {
 	}
 }
 .main-bosuutap {
-	background: #f7f7f7;
+	margin-bottom: 50px;
 }
 .des-bst {
 	text-align: center;
@@ -603,6 +603,10 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	img {
+		height: 350px;
+		object-fit: cover;
+	}
 }
 .top-desgin {
 	position: absolute;
@@ -1025,14 +1029,11 @@ footer {
 	}
 }
 .f-contact {
-	p {
+	.text {
 		width: 120px;
-	}
-	input {
-		width: calc(100% - 120px);
-	}
-	textarea {
-		width: calc(100% - 120px);
+		~ p {
+			width: calc(100% - 120px);
+		}
 	}
 }
 .btn-gui {
@@ -1152,14 +1153,11 @@ footer {
 }
 .thongtingiaohang {
 	.f-contact {
-		p {
+		.text {
 			width: 200px;
-		}
-		input {
-			width: calc(100% - 200px);
-		}
-		textarea {
-			width: calc(100% - 200px);
+			~ p {
+				width: calc(100% - 200px);
+			}
 		}
 		select {
 			width: calc(100% - 200px);
@@ -1586,9 +1584,12 @@ footer {
 	}
 	.f-contact {
 		display: block;
-		p {
+		.text {
 			width: 100%;
 			margin-bottom: 10px;
+			~  {
+				width: 100%;
+			}
 		}
 		input {
 			width: 100%;
@@ -1602,7 +1603,7 @@ footer {
 	}
 	.thongtingiaohang {
 		.f-contact {
-			p {
+			.text {
 				width: 100%;
 			}
 			input {

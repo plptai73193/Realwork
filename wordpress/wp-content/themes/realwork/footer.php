@@ -50,28 +50,6 @@
       </div>
    </div>
 </footer>
-<div id="show-search" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Tìm kiếm</h4>
-         </div>
-         <div class="modal-body">
-            <form class="f-search">
-               <div class="input-group stylish-input-group">
-                  <input type="text" class="form-control" placeholder="Tìm kiếm ...">
-                  <span class="input-group-addon">
-                     <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                     </button>
-                  </span>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
-</div>
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-toggle="tooltip"
    data-placement="left" data-original-title="" title="" style="display: inline;"><span
       class="glyphicon glyphicon-chevron-up"></span></a>

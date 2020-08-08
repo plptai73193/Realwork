@@ -7,11 +7,27 @@
  * @since Foodconnection 1.0
  */
 ?>
-
-<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<label>
-		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'fcv' ); ?></span>
-		<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'fcv' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-	</label>
-	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'fcv' ); ?></span></button>
-</form>
+<div id="show-search" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Tìm kiếm</h4>
+         </div>
+         <div class="modal-body">
+            <form class="f-search search-form" role="search" method="get"
+               action="<?php echo esc_url( home_url( '/' ) ); ?>">
+               <div class="input-group stylish-input-group">
+                  <input type="text" class="form-control" placeholder="Tìm kiếm ..."
+                     value="<?php echo get_search_query(); ?>" name="s">
+                  <span class="input-group-addon">
+                     <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                     </button>
+                  </span>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

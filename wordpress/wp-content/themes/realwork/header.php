@@ -196,11 +196,10 @@
                   </ul>
                </li>
                <li>
-                  <p><a href="blog.html">Blog</a></p>
+                  <a href="<?php echo site_url('tin-tuc')?>">Tin tức</a>
                </li>
-               <li><a href="cong-trinh.html">Công trình</a></li>
-               <li><a href="tuyen-dung.html">Tuyển dụng</a></li>
-               <li><a href="lien-he.html">Liên hệ</a></li>
+               <li><a href="<?php echo site_url('hinh-anh')?>">Hình ảnh</a></li>
+               <li><a href="<?php echo site_url('lien-he')?>">Liên hệ</a></li>
             </ul>
          </div>
       </div>

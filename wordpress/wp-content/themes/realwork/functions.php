@@ -4,7 +4,6 @@ define('IMAGE_PATH', ASSETS_PATH . 'frontend/');
 define('JS_PATH', ASSETS_PATH . 'frontend/');
 define('CSS_PATH', ASSETS_PATH . 'frontend/');
 define('NO_IMAGE', get_field('no_image', 'option'));
-
 if ( ! function_exists( 'setup' ) ) :
 function setup() {
 	load_theme_textdomain( 'plpt' );
@@ -279,3 +278,7 @@ function excerpt($string, $limit){
 		echo '';
 	}
 }
+function remove_editor() {
+	remove_post_type_support('page', 'editor');
+ }
+ add_action('admin_init', 'remove_editor');

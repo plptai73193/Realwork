@@ -129,7 +129,35 @@
 <?php 
    } 
 ?>
-
+<?php
+   $args = array(
+      'type'                     => 'post',
+      'orderby'                  => 'name',
+      'order'                    => 'ASC',
+      'taxonomy'                 => 'category',
+      'pad_counts'               => false
+   );
+   $cats = get_categories( $args );
+   $thumb = get_field('background', $cats[1]) ? get_field('background', $cats[1]) : NO_IMAGE;
+?>
+<div class="main-bosuutap">
+   <div class="clear20"></div>
+   <div class="container">
+      <h4 class="tti-pub center text-uppercase bold">HÌNH ẢNH</h4>
+      <div class="line"></div>
+      <div class="block-design">
+         <img src="<?php echo $thumb ?>" class="fullwidth">
+         <div class="top-desgin">
+            <?php 
+               echo category_description('4');
+            ?>
+         </div>
+         <div class="center-design">
+            <a href="<?php echo site_url('hinh-anh') ?>">VÀO BỘ SƯU TẬP<i class="fas fa-chevron-right"></i></a>
+         </div>
+      </div>
+   </div>
+</div>
 <?php 
    $args = [
       'post_type' => 'post',
